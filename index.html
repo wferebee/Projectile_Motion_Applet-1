@@ -32,7 +32,8 @@
 
     <canvas id="myCanvas"></canvas>
 
-    <button id="mybtn" onclick="animate()">Release</button>
+    <button id="mybtn" onclick="animate(animate)">Release</button> 
+    <!-- added animate as an argument because i was getting a harmless warning in the console. putting animate here casues the warning to go away... -->
      
     <script src="index.js"></script>
   </body>
