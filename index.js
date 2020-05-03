@@ -22,7 +22,7 @@ function draw () {
     context.clearRect(0,0, window.innerWidth,window.innerHeight);
     context.beginPath();
     context.arc(myRectangle.x, myRectangle.y, myRectangle.radius, 0, 2*Math.PI, true);
-    context.fillStyle= "red";
+    context.fillStyle= "green";
     context.fill();
 }
 
