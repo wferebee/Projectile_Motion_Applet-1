@@ -23,6 +23,7 @@
 * JavaScript
 * Canvas
 * Physics
+* Regression Analysis
 
 
 
