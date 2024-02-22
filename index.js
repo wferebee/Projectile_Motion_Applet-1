@@ -1,21 +1,21 @@
 var canvas, context, button, startTime, endTime, slider, sliderPower, output, outputPower;
 
-canvas = document.getElementById('myCanvas');
+canvas = document.getElementById('canvas');
 context = canvas.getContext('2d');
 
-button = document.getElementById("mybtn");
+button = document.getElementById("launch-button");
 button.addEventListener("click", animate)
 
-angleSlider = document.getElementById("myRange");
-angleSlider.oninput = captureAngleSliderInput;
+angleSlider = document.getElementById("angle-input");
+angleSlider.oninput = captureAngleInput;
 
-angleOutput = document.getElementById("demo");
+angleOutput = document.getElementById("angle-display");
 angleOutput.innerHTML = angleSlider.value;
 
-powerSlider = document.getElementById("myPower");
-powerSlider.oninput = capturePowerSliderInput;
+powerSlider = document.getElementById("power-input");
+powerSlider.oninput = capturePowerInput;
 
-powerOutput = document.getElementById("demoPower");
+powerOutput = document.getElementById("power-display");
 powerOutput.innerHTML = powerSlider.value;
 
 var myRectangle = {
@@ -50,37 +50,32 @@ function start() {
 };
 
 function animate() {
-    var canvas = document.getElementById('myCanvas');
+    var canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
     start();
     setInterval(draw, 50);
 }
 
-function captureAngleSliderInput(){
-  output.innerHTML = this.value;
+function captureAngleInput(){
+  angleOutput.innerHTML = this.value;
   myRectangle.theta = this.value * (Math.PI/180);
 }
 
-function capturePowerSliderInput(){
- outputPower.innerHTML = this.value;
+function capturePowerInput(){
+ powerOutput.innerHTML = this.value;
   myRectangle.v = (0.0000352 * Math.pow((this.value), 3)) + (-0.00715429 * Math.pow((this.value), 2)) + (0.605429 * (this.value)) + (-0.0228571); 
 }
 
   // Ideally when the angle is set to 90 degrees, and the power level is set to 100%, the projectile should just ouch the top of the rectangle.
-  //    And when the angle is set to 45 degrees with a power level of 100%, the projetile should just otuch the far bottom corner of the rectangle. 
-  //    To do this, I had to play around with the values, but that didnt yield great results.
+  // And when the angle is set to 45 degrees with a power level of 100%, the projetile should just otuch the far bottom corner of the rectangle. 
+  // To do this, I had to play around with the values, but that didnt yield great results.
 
-  // Early Attempts at getting the powerlevel and angle right -
+  // Early Attempts at getting the powerlevel and angle right
   // myRectangle.v = this.value/(4.132231404);
   // myRectangle.v = this.value / 4.132;
   // myRectangle.v = this.value / Math.pow(3, 2) + 13;
 
-  // SOLVE -
+  // SOLVE 
   // I plugged in the coordinates shown below into a graph in order to find a line of best fit, and using cubic regression,
   // I came up with this equation which gave the best values for the associated angles and power levels I desired.
   //        (0,0),(25,11.1),(50,16.9),(75,19.9),(100,24.2) 
-
-
-
-
-
