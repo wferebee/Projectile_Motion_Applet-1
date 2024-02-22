@@ -2,7 +2,7 @@
 <html>
   <head>
     <style>
-        #myCanvas {
+        #canvas {
           position: fixed;
           top: 50%;
           left: 50%;
@@ -20,19 +20,19 @@
 
     <h1> WILLIES PROJECTILE MOTION APPLET</h1>
 
-    <div class="slidecontainer">
-      <input type="range" min="0" max="90" value="45" class="slider" id="myRange">
-      <p>Angle: <span id="demo"></span></p>
+    <div class="slider-container">
+      <input type="range" min="0" max="90" value="45" class="slider" id="angle-input">
+      <p>Angle: <span id="angle-display"></span></p>
     </div>
 
-    <div class="slidecontainer">
-      <input type="range" min="0" max="100" value="100" class="slider" id="myPower">
-      <p>Power: <span id="demoPower"></span></p>
+    <div class="slider-container">
+      <input type="range" min="0" max="100" value="100" class="slider" id="power-input">
+      <p>Power: <span id="power-display"></span></p>
     </div>
 
-    <canvas id="myCanvas"></canvas>
+    <canvas id="canvas"></canvas>
 
-    <button id="mybtn" onclick="animate(animate)">Go</button> 
+    <button id="launch-button" onclick="animate(animate)">Go</button> 
     <!-- added animate as an argument because i was getting a harmless warning in the console. putting animate here casues the warning to go away... -->
      
     <script src="index.js"></script>
